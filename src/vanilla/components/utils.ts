@@ -53,11 +53,12 @@ export function arrayKeys<GenericType>(array: GenericType): number[] {
 
 export function removeClass(node: HTMLElement, className: string): void {
   const cl = node.getAttribute('class')
-  if (className && cl && cl.indexOf(className) > -1) cl.replace(className, '')
+  if (className && cl && cl.indexOf(className) > -1)
+    node.className = cl.replace(className, '')
 }
 
 export function addClass(node: HTMLElement, className: string): void {
   const cl = node.getAttribute('class')
   if (className && cl && cl.indexOf(className) === -1)
-    cl.concat(' ' + className)
+    node.className = cl + ' ' + className
 }
